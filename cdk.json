@@ -1,0 +1,9 @@
+{
+  "app": "npx tsx infra/bin/app.ts",
+  "context": {
+    "@aws-cdk/core:bootstrapQualifier": "grim3212",
+    "@aws-cdk/core:permissionsBoundary": {
+      "name": "grim3212-workload-boundary"
+    }
+  }
+}

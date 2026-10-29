@@ -1,0 +1,167 @@
+@import 'tailwindcss';
+@import '@fontsource/pixelify-sans/400.css';
+@import '@fontsource/pixelify-sans/600.css';
+
+/* Colors are tokens so the light and dark themes only differ here. */
+:root {
+  color-scheme: light dark;
+  --bg: #f4f1e8;
+  --surface: #fffdf7;
+  --surface-2: #ebe6d8;
+  --border: #d8d1bf;
+  --text: #1c211e;
+  --muted: #5b625d;
+  --accent: #127a3d;
+  --accent-soft: #127a3d1a;
+  --gold: #9a6a00;
+  --warn: #b3261e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0e1311;
+    --surface: #151c19;
+    --surface-2: #1c2521;
+    --border: #2a3530;
+    --text: #e4ece7;
+    --muted: #94a39b;
+    --accent: #4ade80;
+    --accent-soft: #4ade801f;
+    --gold: #f5c542;
+    --warn: #ff7a70;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e1311;
+  --surface: #151c19;
+  --surface-2: #1c2521;
+  --border: #2a3530;
+  --text: #e4ece7;
+  --muted: #94a39b;
+  --accent: #4ade80;
+  --accent-soft: #4ade801f;
+  --gold: #f5c542;
+  --warn: #ff7a70;
+}
+
+@theme {
+  --font-pixel: 'Pixelify Sans', ui-monospace, monospace;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--border);
+  --color-ink: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-gold: var(--gold);
+  --color-warn: var(--warn);
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* Text from the Grim Pack export. */
+.gp-prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.gp-prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.5rem 0;
+}
+.gp-prose h2,
+.gp-prose h3,
+.gp-prose h5 {
+  font-family: var(--font-pixel);
+  font-weight: 600;
+  margin: 1rem 0 0.25rem;
+}
+.gp-prose h2 { font-size: 1.4rem; }
+.gp-prose h3 { font-size: 1.15rem; }
+.gp-prose img { max-width: 100%; height: auto; border-radius: 0.5rem; margin: 0.75rem auto; }
+.gp-prose pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  margin: 0.5rem 0;
+}
+.gp-note {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.75rem 1rem;
+  margin: 0.75rem 0;
+}
+.gp-accent { color: var(--accent); font-weight: 600; }
+.gp-warn { color: var(--warn); font-weight: 600; }
+.gp-gold { color: var(--gold); font-weight: 600; }
+.gp-muted { color: var(--muted); }
+
+/* Item icons are pixel art: keep them crisp. */
+.pixelated { image-rendering: pixelated; }
+
+/* Minecraft-style GUI panel for recipes. These keep the game's own colours in both themes. */
+.mc-panel {
+  background: #c6c6c6;
+  color: #3f3f3f;
+  border: 2px solid #000;
+  box-shadow: inset 2px 2px 0 #fff, inset -2px -2px 0 #555;
+  border-radius: 3px;
+}
+.mc-slot {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: #8b8b8b;
+  box-shadow: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.mc-slot-lg { width: 3rem; height: 3rem; }
+
+/* Minecraft-style item tooltip. */
+.mc-tooltip {
+  background: #100010f0;
+  color: #fff;
+  border: 2px solid #2d0a63;
+  outline: 1px solid #100010;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+.mc-tooltip .gp-accent { color: #7f8cff; }
+.mc-tooltip .gp-warn { color: #ff5555; }
+.mc-tooltip .gp-gold { color: #ffaa00; }
+
+/* The pixel font's "fi" ligature reads as a different letter. */
+.font-pixel,
+.gp-prose h2,
+.gp-prose h3,
+.gp-prose h5 {
+  font-variant-ligatures: none;
+}
+
+/* Tailwind gives buttons the default arrow; anything clickable should show the pointer. */
+@layer base {
+  button:not(:disabled),
+  [role='button'],
+  summary {
+    cursor: pointer;
+  }
+}
