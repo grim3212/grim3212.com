@@ -36,12 +36,13 @@ useSeoMeta({
         >
           <div
             v-if="p.image"
-            class="grid h-40 place-items-center bg-surface-2 p-4"
+            class="h-40 overflow-hidden bg-surface-2"
           >
             <img
               :src="p.image"
-              :alt="''"
-              class="max-h-full object-contain"
+              alt=""
+              class="size-full"
+              :class="p.imageFit === 'contain' ? 'object-contain p-6' : 'object-cover'"
             >
           </div>
           <div class="flex flex-1 flex-col p-5">
