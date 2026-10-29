@@ -9,9 +9,17 @@ if (error.value || !data.value) throw createError({ statusCode: 404, statusMessa
 
 provide(ITEMS, computed(() => data.value?.items ?? {}))
 const chapter = computed(() => data.value!.chapter)
-useSeoMeta({
+const firstPage = chapter.value.pages?.find(p => p.html)
+usePageSeo({
   title: `${chapter.value.name} · ${data.value.part.name} · Grim Pack`,
-  description: `${chapter.value.name} in the ${data.value.part.name} part of the Grim Pack Minecraft mod.`,
+  titleTemplate: null,
+  description: summarize(
+    chapter.value.info ?? firstPage?.html,
+    chapter.value.config
+      ? `Every ${data.value.part.name} config option in the Grim Pack Minecraft mod, with its default.`
+      : `${chapter.value.name} in the ${data.value.part.name} part of the Grim Pack Minecraft mod.`,
+  ),
+  image: chapter.value.images?.[0] ?? chapter.value.pages?.find(p => p.images)?.images?.[0],
 })
 </script>
 

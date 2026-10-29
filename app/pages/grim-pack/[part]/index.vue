@@ -6,9 +6,11 @@ const { data: part, error } = await useFetch(`/api/grimpack/part/${id}`, { key: 
 if (error.value || !part.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 
 const chapters = computed(() => nav.value?.parts.find(p => p.id === id)?.chapters ?? [])
-useSeoMeta({
+usePageSeo({
   title: `${part.value.name} · Grim Pack`,
-  description: `The ${part.value.name} part of the Grim Pack Minecraft mod.`,
+  titleTemplate: null,
+  description: summarize(part.value.info, `The ${part.value.name} part of the Grim Pack Minecraft mod.`),
+  image: part.value.images?.[0],
 })
 </script>
 

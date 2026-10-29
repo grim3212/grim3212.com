@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { GRIM_PACK_SUCCESSOR } from '~/data/projects'
+
 const route = useRoute()
 const { data: nav } = await useGrimpackNav()
 const menuOpen = ref(false)
@@ -10,6 +12,17 @@ const currentChapter = computed(() => route.params.chapter as string | undefined
 
 <template>
   <div class="mx-auto max-w-6xl px-4 py-8">
+    <div
+      role="note"
+      class="mb-8 flex flex-wrap items-center gap-x-3 gap-y-1 rounded-xl border border-line bg-surface-2 px-4 py-3 text-sm"
+    >
+      <span class="rounded-full border border-line px-2 py-0.5 text-xs text-muted">Archived</span>
+      <span class="text-muted">Grim Pack is no longer maintained. These docs stay up for anyone still playing it.</span>
+      <a
+        :href="GRIM_PACK_SUCCESSOR.href"
+        class="font-medium text-accent hover:underline"
+      >Its spiritual successor is {{ GRIM_PACK_SUCCESSOR.name }} →</a>
+    </div>
     <div class="flex flex-col gap-8 lg:flex-row">
       <aside class="lg:w-60 lg:shrink-0">
         <div class="lg:sticky lg:top-20">

@@ -1,8 +1,10 @@
 <script setup lang="ts">
 const { data: nav } = await useGrimpackNav()
-useSeoMeta({
+usePageSeo({
   title: 'Grim Pack documentation',
-  description: 'Documentation for the Grim Pack Minecraft mod: every part, block, item and recipe, plus its config options.',
+  titleTemplate: null,
+  description: 'Documentation for the Grim Pack Minecraft mod for 1.12.2: every part, block, item and recipe, '
+    + 'plus its config options.',
 })
 
 const curseforge = 'https://www.curseforge.com/minecraft/mc-mods/grim-pack'
