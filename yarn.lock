@@ -2443,10 +2443,10 @@ aws-cdk-lib@^2.275.0:
     semver "^7.8.5"
     yaml "1.10.3"
 
-aws-cdk@^2.1146.1:
-  version "2.1146.1"
-  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-2.1146.1.tgz#45a2407a27e5d7485aba7321b78907a52b61d4ff"
-  integrity sha512-Sb3RHuPt8yLP4BPFNl+D2li5wI9h4UL/+NYVq8FCxmDfUJwayzEOc/Tgb4wcixB8naOmPOLzhWkdbFx17tuhSg==
+aws-cdk@^2.1148.0:
+  version "2.1148.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-2.1148.0.tgz#dc0391083f6b9a20c8b4dc173b8a7937c524800b"
+  integrity sha512-G7MqPDzldsFxrVSFxR8Oj3vf8NutokIatJVygW/g/0COjrepsbDjuCP9OB9iN2hOn3QvOSf10qd5K/P3D5TQcQ==
 
 b4a@^1.6.4, b4a@^1.8.1, b4a@^1.9.0:
   version "1.9.0"
