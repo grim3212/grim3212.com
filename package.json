@@ -27,7 +27,7 @@
     "@nuxt/eslint": "^1.17.0",
     "@nuxtjs/robots": "^7.0.2",
     "@nuxtjs/sitemap": "^9.1.0",
-    "@tailwindcss/vite": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.4",
     "@types/node": "^26.6.6",
     "aws-cdk": "^2.1146.1",
     "aws-cdk-lib": "^2.275.0",
